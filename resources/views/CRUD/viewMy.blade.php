@@ -23,14 +23,25 @@
                 </thead>
                 <tbody>
                     {{-- datas tinggal kalian ganti jadi books --}}
+                    <?php $angka = 0; ?>
                     @foreach ($datas as $book)
+                    <?php $angka++ ;?>
                     <tr>
-                      <th>{{ $book->id }} </th>
+                      <th>{{ $angka }} </th>
                       <td>{{ $book->nama}} </td>
                       <td>{{ $book->penulis}}</td>
                       <td>Rp. {{ $book->harga}}</td>
                       <td>{{ $book->stock}} Qty</td>
+                      <td><a href="{{ route ('UpdateForm', $book->id) }} " class="btn-danger btn">UPDATE</a></td>
+                      <td>
+                            <form action="{{route('DeleteBuku', $book->id)}}" method="POST">
+                                @csrf
+                                @method('Delete')
+                                <button type="submit" class="btn-danger btn">DELETE</button>
+                            </form>
+                        </td>
                     </tr>
+
                     @endforeach
                   </tbody>
             </table>
@@ -50,6 +61,6 @@
         </div>
     </div>
 </div>
-    <div class="text-center"> <h1>Tidak ada buku yang tersedia</h1></div>
+    <div class="text-center"> <h1>Tidak ada buku yang kamu buat</h1></div>
 @endif
 @endsection

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $fillable = [
-        'nama', 'penulis', 'harga', 'stock'
+        'nama', 'penulis', 'harga', 'stock', 'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

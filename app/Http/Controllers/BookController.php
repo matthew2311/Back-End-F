@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\BookRequest;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -19,7 +21,8 @@ class BookController extends Controller
             'nama' => $request->nama,
             'penulis' => $request->penulis,
             'harga' => $request->harga,
-            'stock' => $request->stock
+            'stock' => $request->stock,
+            'user_id' => Auth::user()->id
         ]);
         return redirect(route('home'));
         // return view('home');
@@ -29,6 +32,12 @@ class BookController extends Controller
         $books = Book::all();
         return view('CRUD.view', ['datas' => $books]);
         // return view('CRUD.view)->withBooks($books);
+    }
+
+    public function ViewMyBook(){
+        $books = Auth::user()->books;
+        $angka = 1;
+        return view('CRUD.viewMy', ['datas' => $books]);
     }
 
     public function UpdateForm($id){

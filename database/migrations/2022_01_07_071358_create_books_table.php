@@ -15,11 +15,15 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->integer("user_id")->unsigned();
             $table->string('nama');
             $table->string('penulis');
             $table->integer('harga');
             $table->integer('stock');
             $table->timestamps();
+
+            // maksud ini adalah ngambil id dari tabel users
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

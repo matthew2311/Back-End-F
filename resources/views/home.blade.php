@@ -28,4 +28,18 @@
         </div>
     </div>
 </div>
+
+<div class="container" style="margin-top: 25px">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('View My Books') }}</div>
+
+                <div class="card-body">
+                    <a href="{{ route ('ViewMyBook') }} ">Click Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
