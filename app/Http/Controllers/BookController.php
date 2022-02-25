@@ -36,7 +36,6 @@ class BookController extends Controller
 
     public function ViewMyBook(){
         $books = Auth::user()->books;
-        $angka = 1;
         return view('CRUD.viewMy', ['datas' => $books]);
     }
 
