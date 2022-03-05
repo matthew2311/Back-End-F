@@ -28,8 +28,7 @@ class BookRequest extends FormRequest
             'penulis' => 'required|max:50',
             'harga' => 'required|integer',
             'stock' => 'required|integer|min:10',
-            'category' => 'required',
-            'date' => 'required|min:2000|max:2021|integer'
+            'category' => 'required'
         ];
     }
 

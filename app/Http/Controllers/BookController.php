@@ -17,7 +17,6 @@ class BookController extends Controller
     public function showForm(BookRequest $request){
         // Query Builder
         // Elonguent
-        dd($request);
         $book = Book::create([
             'nama' => $request->nama,
             'penulis' => $request->penulis,

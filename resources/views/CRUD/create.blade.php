@@ -67,19 +67,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="stock" type="number" class="form-control" name="date" placeholder="Stock Buku">
-                                @error('date')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                             <div class="col-md-6" style="padding-top: 5px">
