@@ -23,11 +23,11 @@
                 </thead>
                 <tbody>
                     {{-- datas tinggal kalian ganti jadi books --}}
-                    <?php $angka = 0; ?>
+                    {{-- <?php $angka = 0; ?> --}}
                     @foreach ($datas as $book)
-                    <?php $angka++ ;?>
+                    {{-- <?php $angka++ ;?> --}}
                     <tr>
-                      <th>{{ $angka }} </th>
+                      <th>{{ $loop->iteration }} </th>
                       <td>{{ $book->nama}} </td>
                       <td>{{ $book->penulis}}</td>
                       <td>Rp. {{ $book->harga}}</td>

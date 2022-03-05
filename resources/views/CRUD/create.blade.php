@@ -66,6 +66,47 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="stock" type="number" class="form-control" name="date" placeholder="Stock Buku">
+                                @error('date')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="stock" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
+
+                            <div class="col-md-6" style="padding-top: 5px">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="category[]">
+                                    <label class="form-check-label" for="inlineCheckbox1">Action</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="category[]">
+                                    <label class="form-check-label" for="inlineCheckbox2">Comedy</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="3" name="category[]">
+                                    <label class="form-check-label" for="inlineCheckbox3">Romance</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="4" name="category[]">
+                                    <label class="form-check-label" for="inlineCheckbox3">Horror</label>
+                                  </div>
+                                @error('category')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

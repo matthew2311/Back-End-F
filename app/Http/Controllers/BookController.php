@@ -17,13 +17,16 @@ class BookController extends Controller
     public function showForm(BookRequest $request){
         // Query Builder
         // Elonguent
-        Book::create([
+        dd($request);
+        $book = Book::create([
             'nama' => $request->nama,
             'penulis' => $request->penulis,
             'harga' => $request->harga,
             'stock' => $request->stock,
             'user_id' => Auth::user()->id
         ]);
+        // dd($request->category);
+        $book->category()->attach($request->category);
         return redirect(route('home'));
         // return view('home');
     }

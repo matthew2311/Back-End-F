@@ -19,17 +19,27 @@
                     <th scope="col">Penulis Buku</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Category</th>
                   </tr>
                 </thead>
                 <tbody>
                     {{-- datas tinggal kalian ganti jadi books --}}
                     @foreach ($datas as $book)
                     <tr>
-                      <th>{{ $book->id }} </th>
+                      <th>{{ $loop->iteration }} </th>
                       <td>{{ $book->nama}} </td>
                       <td>{{ $book->penulis}}</td>
                       <td>Rp. {{ $book->harga}}</td>
                       <td>{{ $book->stock}} Qty</td>
+                      <td>
+                          @foreach ($book->category as $category)
+                            @if ($loop->last)
+                            {{$category->category_name}}
+                            @else
+                            {{$category->category_name}},
+                            @endif
+                          @endforeach
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
