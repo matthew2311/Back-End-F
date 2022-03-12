@@ -36,12 +36,7 @@ class BookRequest extends FormRequest
     public function messages()
     {
         return [
-            'nama.required' => 'Nama harus diisi',
-            'penulis.required' => 'Penulis harus diisi',
-            'harga.required' => 'Harga harus ada',
-            'stock.required' => 'Stock harus ada',
-            'category.required' => 'Category harus diisi',
-            'image.required' => 'Image harus ada'
+            'required' => ':attribute harus diisi'
         ];
     }
 }
