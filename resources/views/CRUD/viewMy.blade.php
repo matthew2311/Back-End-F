@@ -19,19 +19,27 @@
                     <th scope="col">Penulis Buku</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Category</th>
                   </tr>
                 </thead>
                 <tbody>
                     {{-- datas tinggal kalian ganti jadi books --}}
-                    {{-- <?php $angka = 0; ?> --}}
                     @foreach ($datas as $book)
-                    {{-- <?php $angka++ ;?> --}}
                     <tr>
                       <th>{{ $loop->iteration }} </th>
                       <td>{{ $book->nama}} </td>
                       <td>{{ $book->penulis}}</td>
                       <td>Rp. {{ $book->harga}}</td>
                       <td>{{ $book->stock}} Qty</td>
+                      <td>
+                        @foreach ($book->category as $category)
+                          @if ($loop->last)
+                          {{$category->category_name}}
+                          @else
+                          {{$category->category_name}},
+                          @endif
+                        @endforeach
+                        </td>
                       <td><a href="{{ route ('UpdateForm', $book->id) }} " class="btn-danger btn">UPDATE</a></td>
                       <td>
                             <form action="{{route('DeleteBuku', $book->id)}}" method="POST">
