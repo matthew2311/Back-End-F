@@ -17,12 +17,16 @@ class BookController extends Controller
     public function showForm(BookRequest $request){
         // Query Builder
         // Elonguent
+        // dd($request);
+        $path = $request->file('image')->store('public/Images');
+        $path = substr($path, strlen('public/'));
         $book = Book::create([
             'nama' => $request->nama,
             'penulis' => $request->penulis,
             'harga' => $request->harga,
             'stock' => $request->stock,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'image' => $path
         ]);
         // dd($request->category);
         $book->category()->attach($request->category);
@@ -39,6 +43,11 @@ class BookController extends Controller
     public function ViewMyBook(){
         $books = Auth::user()->books;
         return view('CRUD.viewMy', ['datas' => $books]);
+    }
+
+    public function ViewBook($id){
+        $book = Book::find($id);
+        return view('CRUD.ViewBook', ['book' => $book]);
     }
 
     public function UpdateForm($id){

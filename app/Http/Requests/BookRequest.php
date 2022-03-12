@@ -28,7 +28,8 @@ class BookRequest extends FormRequest
             'penulis' => 'required|max:50',
             'harga' => 'required|integer',
             'stock' => 'required|integer|min:10',
-            'category' => 'required'
+            'category' => 'required',
+            'image' => 'required'
         ];
     }
 
@@ -39,7 +40,8 @@ class BookRequest extends FormRequest
             'penulis.required' => 'Penulis harus diisi',
             'harga.required' => 'Harga harus ada',
             'stock.required' => 'Stock harus ada',
-            'category.required' => 'Category harus diisi'
+            'category.required' => 'Category harus diisi',
+            'image.required' => 'Image harus ada'
         ];
     }
 }

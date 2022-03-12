@@ -26,8 +26,8 @@
                     {{-- datas tinggal kalian ganti jadi books --}}
                     @foreach ($datas as $book)
                     <tr>
-                      <th>{{ $loop->iteration }} </th>
-                      <td>{{ $book->nama}} </td>
+                      <th>{{ $loop->iteration }}</th>
+                      <td><a href="{{route('ViewBook', $book->id) }}"> {{ $book->nama}}</a> </td>
                       <td>{{ $book->penulis}}</td>
                       <td>Rp. {{ $book->harga}}</td>
                       <td>{{ $book->stock}} Qty</td>

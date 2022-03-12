@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('penulis');
             $table->integer('harga');
             $table->integer('stock');
+            $table->string('image');
             $table->timestamps();
 
             // maksud ini adalah ngambil id dari tabel users
