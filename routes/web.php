@@ -33,3 +33,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/mail', 'BookController@SendMail')->name('SendMail');
 });
 
+Route::get('/create-symbolic', function () {
+    symlink(storage_path('/app/public'), public_path('storage'));
+});
