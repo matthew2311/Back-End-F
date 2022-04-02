@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\BookRequest;
+use App\Mail\SendMail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BookController extends Controller
 {
@@ -71,5 +73,10 @@ class BookController extends Controller
         $BookDelete = Book::find($id);
         $BookDelete->delete();
         return redirect(route('ViewAll'))->with('success', 'Buku Berhasil Dihapus');
+    }
+
+    public function SendMail(){
+        Mail::send(new SendMail());
+        return redirect('/')->with('success', 'Email Berhasil Dikirim');
     }
 }

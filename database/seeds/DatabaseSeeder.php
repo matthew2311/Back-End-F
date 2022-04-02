@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
         $array = ['Action', 'Comedy', 'Romance', 'Horror'];
 
         foreach ($array as $category) {
-            Category::create([
-                'category_name' => $category
-            ]);
+             Category::create([
+                 'category_name' => $category
+             ]);
         }
+
+        $this->call(AdminSeeder::class);
+        $this->call(BookSeeder::class);
     }
 }

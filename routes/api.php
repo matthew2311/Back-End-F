@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::delete('/delete', 'APIBookController@DeleteAPI');
+Route::post('/create', 'APIBookController@showFormAPI');
+Route::get('/view', 'APIBookController@ViewAllAPI');
+Route::patch('/update/{id}' , 'APIBookController@ShowUpdateFormAPI');
